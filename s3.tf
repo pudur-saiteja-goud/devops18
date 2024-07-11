@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "one" {
-  bucket = "mustafaccit.devops.project.bucket"
+  bucket = "saiccit.devops.project.bucket"
 }
 
 resource "aws_s3_bucket_ownership_controls" "two" {
@@ -17,16 +17,10 @@ resource "aws_s3_bucket_acl" "three" {
 }
 
 resource "aws_s3_bucket_versioning" "three" {
-bucket = aws_s3_bucket.one.id
+bucket = "saiccit.devops.project.bucket"
 versioning_configuration {
 status = "Enabled"
 }
 }
 
-terraform {
-backend "s3" {
-region = "us-east-1"
-bucket = "mustafaccit.devops.project.bucket"
-key = "prod/terraform.tfstate"
-}
-}
+
